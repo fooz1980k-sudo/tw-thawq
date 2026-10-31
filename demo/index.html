@@ -1,0 +1,16 @@
+<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=block" rel="stylesheet">
+<style>body{margin:0;font-family:Tajawal,sans-serif;background:#faf7f1;color:#1b1408;--color-primary:#b88a44} .sp{height:1px}</style>
+<script>
+const P = {
+  1: { id: 1, name: 'طقم الإشراقة الوردي', url: '#', image: { url: 'img/p1.jpg' }, price: 320, sale_price: 260, regular_price: 320, rating: { stars: 4.8, count: 214 }, quantity: 3, is_available: true },
+  2: { id: 2, name: 'زبدة الجسم الطبيعية', url: '#', image: { url: 'img/p2.jpg' }, price: 190, regular_price: 190, rating: { stars: 4.6, count: 98 }, quantity: 40, is_available: true },
+  3: { id: 3, name: 'صندوق هدية فاخر', url: '#', image: { url: 'img/p3.jpg' }, price: 540, sale_price: 420, regular_price: 540, rating: { stars: 4.9, count: 61 }, quantity: 12, is_available: true },
+  4: { id: 4, name: 'باليت ظلال الغروب', url: '#', image: { url: 'img/p4.jpg' }, price: 145, regular_price: 145, rating: { stars: 4.4, count: 33 }, quantity: 0, is_available: false },
+};
+window.Salla = { onReady: async () => {}, money: (n) => `${Number(n).toLocaleString('en')} ر.س`, success: (m) => console.log('toast', m),
+  product: { api: { getDetails: async (id) => ({ data: P[id] }) } }, cart: { addItem: async () => ({}), api: { details: async () => ({ data: { cart: { sub_total: 190 } } }) } } };
+window.HINTS = {"thawq-quiz": {}, "thawq-box": {"_pick": [1, 2]}, "thawq-budget": {}, "thawq-shipping": {"_cart": 190}};
+</script><script type="module" src="bundle.js"></script></head><body>
+<salla-thawq-quiz id="thawq-quiz"></salla-thawq-quiz><salla-thawq-box id="thawq-box"></salla-thawq-box><salla-thawq-budget id="thawq-budget"></salla-thawq-budget><salla-thawq-shipping id="thawq-shipping"></salla-thawq-shipping>
+<script>const cfg = {"thawq-quiz": {"title": "محتار؟ نختار معك في خطوتين", "q1": "لمين الهدية؟", "q2": "وش أكثر شي يحبه؟", "options": [{"step": 1, "emoji": "👩", "label": "لها", "products": [{"value": 1}, {"value": 4}, {"value": 3}]}, {"step": 1, "emoji": "👨", "label": "له", "products": [{"value": 2}, {"value": 3}]}, {"step": 1, "emoji": "🧒", "label": "لعائلتي", "products": [{"value": 3}, {"value": 2}]}, {"step": 2, "emoji": "✨", "label": "العناية", "products": [{"value": 1}, {"value": 2}]}, {"step": 2, "emoji": "🎨", "label": "المكياج", "products": [{"value": 4}]}, {"step": 2, "emoji": "🎁", "label": "المفاجآت", "products": [{"value": 3}]}]}, "thawq-box": {"subtitle": "اختر 3 قطع، ونغلّفها لك في صندوق فاخر.", "products": [{"value": 1}, {"value": 2}, {"value": 3}, {"value": 4}], "size": 3, "reward": "خصم 15٪ وتغليف مجاني", "coupon": "BOX15"}, "thawq-budget": {"title": "هدية تناسب ميزانيتك", "subtitle": "الفئات اللي ما فيها منتجات تختفي تلقائياً.", "products": [{"value": 1}, {"value": 2}, {"value": 3}, {"value": 4}], "bands": [{"label": "أقل من 200", "min": 0, "max": 200}, {"label": "200 – 400", "min": 200, "max": 400}, {"label": "400 فأكثر", "min": 400, "max": 0}]}, "thawq-shipping": {"threshold": 300, "button": "كمّل التسوق", "link": "#"}}; for (const [id, c] of Object.entries(cfg)) document.getElementById(id).config = c;</script></body></html>
