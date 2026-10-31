@@ -1,465 +1,467 @@
 {
-  "name": {
-    "ar": "ذوق — عناصر البيع الذكي",
-    "en": "Thawq — Smart Selling Components"
-  },
-  "description": {
-    "ar": "4 عناصر ترفع متوسط قيمة الطلب: مساعد اختيار بالأسئلة يرشّح المنتجات، صمّم صندوقك بنفسك، تسوّق حسب ميزانيتك، وشريط الشحن المجاني الحي من السلة.",
-    "en": "4 components that lift average order value: product-finder quiz, build-your-own box, shop by budget, and a live free-shipping progress bar."
-  },
-  "author": {
-    "name": "Khaled Alshamrani",
-    "email": "fooz1980k@gmail.com",
-    "url": "https://github.com/fooz1980k-sudo/tw-thawq"
-  },
-  "repository": "https://github.com/fooz1980k-sudo/tw-thawq",
-  "components": [
-    {
-      "title": "ذوق · مساعد الاختيار",
-      "icon": "sicon-magic-wand",
-      "name": "thawq-quiz",
-      "fields": [
+    "name": {
+        "ar": "ذوق — عناصر البيع الذكي",
+        "en": "Thawq — Smart Selling Components"
+    },
+    "description": {
+        "ar": "4 عناصر ترفع متوسط قيمة الطلب: مساعد اختيار بالأسئلة يرشّح المنتجات، صمّم صندوقك بنفسك، تسوّق حسب ميزانيتك، وشريط الشحن المجاني الحي من السلة.",
+        "en": "4 components that lift average order value: product-finder quiz, build-your-own box, shop by budget, and a live free-shipping progress bar."
+    },
+    "author": {
+        "name": "Khaled Alshamrani",
+        "email": "fooz1980k@gmail.com",
+        "url": "https://github.com/fooz1980k-sudo/tw-thawq"
+    },
+    "repository": "https://github.com/fooz1980k-sudo/tw-thawq",
+    "components": [
         {
-          "id": "title",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "العنوان",
-          "format": "text",
-          "required": false,
-          "maxLength": 120,
-          "value": "محتار؟ نختار معك",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "q1",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "السؤال الأول",
-          "format": "text",
-          "required": false,
-          "maxLength": 80,
-          "value": "لمين تشتري؟",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "q2",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "السؤال الثاني (اختياري)",
-          "format": "text",
-          "required": false,
-          "maxLength": 80,
-          "value": "وش يحب؟",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "q3",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "السؤال الثالث (اختياري)",
-          "format": "text",
-          "required": false,
-          "maxLength": 80,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "options",
-          "icon": "sicon-list",
-          "type": "collection",
-          "format": "collection",
-          "required": true,
-          "minLength": 1,
-          "maxLength": 18,
-          "item_label": "خيار",
-          "fields": [
-            {
-              "id": "step",
-              "icon": "sicon-list",
-              "type": "items",
-              "format": "radio-list",
-              "label": "تابع لأي سؤال",
-              "required": true,
-              "options": [
+            "title": "ذوق · مساعد الاختيار",
+            "icon": "sicon-magic-wand",
+            "name": "thawq-quiz",
+            "fields": [
                 {
-                  "label": "الأول",
-                  "value": 1,
-                  "key": "1"
+                    "id": "title",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "العنوان",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 120,
+                    "value": "محتار؟ نختار معك",
+                    "placeholder": "",
+                    "multilanguage": true
                 },
                 {
-                  "label": "الثاني",
-                  "value": 2,
-                  "key": "2"
+                    "id": "q1",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "السؤال الأول",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 80,
+                    "value": "لمين تشتري؟",
+                    "placeholder": "",
+                    "multilanguage": true
                 },
                 {
-                  "label": "الثالث",
-                  "value": 3,
-                  "key": "3"
-                }
-              ],
-              "selected": [
+                    "id": "q2",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "السؤال الثاني (اختياري)",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 80,
+                    "value": "وش يحب؟",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
                 {
-                  "label": "الأول",
-                  "value": 1,
-                  "key": "1"
+                    "id": "q3",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "السؤال الثالث (اختياري)",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 80,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "options",
+                    "icon": "sicon-list",
+                    "type": "collection",
+                    "format": "collection",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 18,
+                    "item_label": "خيار",
+                    "fields": [
+                        {
+                            "id": "step",
+                            "icon": "sicon-list",
+                            "type": "items",
+                            "format": "radio-list",
+                            "label": "تابع لأي سؤال",
+                            "required": true,
+                            "options": [
+                                {
+                                    "label": "الأول",
+                                    "value": 1,
+                                    "key": "1"
+                                },
+                                {
+                                    "label": "الثاني",
+                                    "value": 2,
+                                    "key": "2"
+                                },
+                                {
+                                    "label": "الثالث",
+                                    "value": 3,
+                                    "key": "3"
+                                }
+                            ],
+                            "selected": [
+                                {
+                                    "label": "الأول",
+                                    "value": 1,
+                                    "key": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "emoji",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "رمز",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 4,
+                            "value": "✨",
+                            "placeholder": ""
+                        },
+                        {
+                            "id": "label",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "نص الخيار",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 40,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        },
+                        {
+                            "id": "products",
+                            "icon": "sicon-box",
+                            "type": "items",
+                            "label": "المنتجات المناسبة لهذا الخيار",
+                            "placeholder": "ابحث في منتجاتك...",
+                            "format": "dropdown-list",
+                            "source": "products",
+                            "options": [],
+                            "required": true,
+                            "selected": [],
+                            "searchable": true,
+                            "multichoice": true,
+                            "minLength": 1,
+                            "maxLength": 12
+                        }
+                    ],
+                    "value": []
+                },
+                {
+                    "id": "results",
+                    "icon": "sicon-hashtag",
+                    "type": "number",
+                    "format": "slider",
+                    "label": "عدد النتائج",
+                    "required": false,
+                    "value": 4,
+                    "minimum": 1,
+                    "maximum": 8
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
                 }
-              ]
-            },
-            {
-              "id": "emoji",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "رمز",
-              "format": "text",
-              "required": false,
-              "maxLength": 4,
-              "value": "✨",
-              "placeholder": ""
-            },
-            {
-              "id": "label",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "نص الخيار",
-              "format": "text",
-              "required": false,
-              "maxLength": 40,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            },
-            {
-              "id": "products",
-              "icon": "sicon-box",
-              "type": "items",
-              "label": "المنتجات المناسبة لهذا الخيار",
-              "placeholder": "ابحث في منتجاتك...",
-              "format": "dropdown-list",
-              "source": "products",
-              "options": [],
-              "required": true,
-              "selected": [],
-              "searchable": true,
-              "multichoice": true,
-              "minLength": 1,
-              "maxLength": 12
-            }
-          ],
-          "value": []
+            ],
+            "key": "20bfc4a1-b40d-5ec1-a801-ee29b036b45f",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-quiz.jpg"
         },
         {
-          "id": "results",
-          "icon": "sicon-hashtag",
-          "type": "number",
-          "format": "slider",
-          "label": "عدد النتائج",
-          "required": false,
-          "value": 4,
-          "minimum": 1,
-          "maximum": 8
+            "title": "ذوق · صمّم صندوقك",
+            "icon": "sicon-gift",
+            "name": "thawq-box",
+            "fields": [
+                {
+                    "id": "title",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "العنوان",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 120,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "subtitle",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الوصف",
+                    "format": "textarea",
+                    "required": false,
+                    "maxLength": 200,
+                    "value": "اختر القطع وكوّن هديتك بنفسك",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "products",
+                    "icon": "sicon-box",
+                    "type": "items",
+                    "label": "اختر المنتجات",
+                    "placeholder": "ابحث في منتجاتك...",
+                    "format": "dropdown-list",
+                    "source": "products",
+                    "options": [],
+                    "required": true,
+                    "selected": [],
+                    "searchable": true,
+                    "multichoice": true,
+                    "minLength": 2,
+                    "maxLength": 16
+                },
+                {
+                    "id": "size",
+                    "icon": "sicon-hashtag",
+                    "type": "number",
+                    "format": "slider",
+                    "label": "عدد القطع في الصندوق",
+                    "required": false,
+                    "value": 3,
+                    "minimum": 2,
+                    "maximum": 8
+                },
+                {
+                    "id": "reward",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "المكافأة عند الاكتمال (اختياري)",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 40,
+                    "value": "خصم 15٪",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "coupon",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "كود الخصم (أنشئه من عروض سلة)",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 30,
+                    "value": "",
+                    "placeholder": ""
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "13fa4ee9-e242-5028-903e-733dd652b018",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-box.jpg"
         },
         {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
+            "title": "ذوق · حسب ميزانيتك",
+            "icon": "sicon-wallet",
+            "name": "thawq-budget",
+            "fields": [
+                {
+                    "id": "title",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "العنوان",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 120,
+                    "value": "هدية تناسب ميزانيتك",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "subtitle",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الوصف",
+                    "format": "textarea",
+                    "required": false,
+                    "maxLength": 200,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "products",
+                    "icon": "sicon-box",
+                    "type": "items",
+                    "label": "اختر المنتجات",
+                    "placeholder": "ابحث في منتجاتك...",
+                    "format": "dropdown-list",
+                    "source": "products",
+                    "options": [],
+                    "required": true,
+                    "selected": [],
+                    "searchable": true,
+                    "multichoice": true,
+                    "minLength": 2,
+                    "maxLength": 24
+                },
+                {
+                    "id": "bands",
+                    "icon": "sicon-list",
+                    "type": "collection",
+                    "format": "collection",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 6,
+                    "item_label": "فئة سعرية",
+                    "fields": [
+                        {
+                            "id": "label",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "الاسم",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 30,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        },
+                        {
+                            "id": "min",
+                            "icon": "sicon-hashtag",
+                            "type": "number",
+                            "format": "number",
+                            "label": "من (ر.س)",
+                            "required": false,
+                            "value": 0
+                        },
+                        {
+                            "id": "max",
+                            "icon": "sicon-hashtag",
+                            "type": "number",
+                            "format": "number",
+                            "label": "إلى (ر.س) — اتركه 0 لـ «فأكثر»",
+                            "required": false,
+                            "value": 0
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "أقل من 200",
+                            "min": 0,
+                            "max": 200
+                        },
+                        {
+                            "label": "200 – 400",
+                            "min": 200,
+                            "max": 400
+                        },
+                        {
+                            "label": "400 فأكثر",
+                            "min": 400,
+                            "max": 0
+                        }
+                    ]
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "ae604775-a1c4-55fb-a70f-96d28d2e5c1c",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-budget.jpg"
+        },
+        {
+            "title": "ذوق · شريط الشحن المجاني",
+            "icon": "sicon-shipping",
+            "name": "thawq-shipping",
+            "fields": [
+                {
+                    "id": "threshold",
+                    "icon": "sicon-hashtag",
+                    "type": "number",
+                    "format": "number",
+                    "label": "حد الشحن المجاني (ر.س)",
+                    "required": false,
+                    "value": 300
+                },
+                {
+                    "id": "reward",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "المكافأة",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 60,
+                    "value": "يصير الشحن مجاني",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "done",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "رسالة الاكتمال",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 60,
+                    "value": "مبروك! طلبك صار شحنه مجاني",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "button",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "نص الزر",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 30,
+                    "value": "كمّل التسوق",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "link",
+                    "icon": "sicon-link",
+                    "type": "string",
+                    "format": "url",
+                    "label": "رابط الزر",
+                    "required": false,
+                    "value": "",
+                    "placeholder": "https://"
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "80989276-8edf-514d-8529-b4cf488a2fcc",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-shipping.jpg"
         }
-      ],
-      "key": "20bfc4a1-b40d-5ec1-a801-ee29b036b45f",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-quiz.jpg"
-    },
-    {
-      "title": "ذوق · صمّم صندوقك",
-      "icon": "sicon-gift",
-      "name": "thawq-box",
-      "fields": [
-        {
-          "id": "title",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "العنوان",
-          "format": "text",
-          "required": false,
-          "maxLength": 120,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "subtitle",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الوصف",
-          "format": "textarea",
-          "required": false,
-          "maxLength": 200,
-          "value": "اختر القطع وكوّن هديتك بنفسك",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "products",
-          "icon": "sicon-box",
-          "type": "items",
-          "label": "اختر المنتجات",
-          "placeholder": "ابحث في منتجاتك...",
-          "format": "dropdown-list",
-          "source": "products",
-          "options": [],
-          "required": true,
-          "selected": [],
-          "searchable": true,
-          "multichoice": true,
-          "minLength": 2,
-          "maxLength": 16
-        },
-        {
-          "id": "size",
-          "icon": "sicon-hashtag",
-          "type": "number",
-          "format": "slider",
-          "label": "عدد القطع في الصندوق",
-          "required": false,
-          "value": 3,
-          "minimum": 2,
-          "maximum": 8
-        },
-        {
-          "id": "reward",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "المكافأة عند الاكتمال (اختياري)",
-          "format": "text",
-          "required": false,
-          "maxLength": 40,
-          "value": "خصم 15٪",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "coupon",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "كود الخصم (أنشئه من عروض سلة)",
-          "format": "text",
-          "required": false,
-          "maxLength": 30,
-          "value": "",
-          "placeholder": ""
-        },
-        {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
-        }
-      ],
-      "key": "13fa4ee9-e242-5028-903e-733dd652b018",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-box.jpg"
-    },
-    {
-      "title": "ذوق · حسب ميزانيتك",
-      "icon": "sicon-wallet",
-      "name": "thawq-budget",
-      "fields": [
-        {
-          "id": "title",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "العنوان",
-          "format": "text",
-          "required": false,
-          "maxLength": 120,
-          "value": "هدية تناسب ميزانيتك",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "subtitle",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الوصف",
-          "format": "textarea",
-          "required": false,
-          "maxLength": 200,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "products",
-          "icon": "sicon-box",
-          "type": "items",
-          "label": "اختر المنتجات",
-          "placeholder": "ابحث في منتجاتك...",
-          "format": "dropdown-list",
-          "source": "products",
-          "options": [],
-          "required": true,
-          "selected": [],
-          "searchable": true,
-          "multichoice": true,
-          "minLength": 2,
-          "maxLength": 24
-        },
-        {
-          "id": "bands",
-          "icon": "sicon-list",
-          "type": "collection",
-          "format": "collection",
-          "required": true,
-          "minLength": 1,
-          "maxLength": 6,
-          "item_label": "فئة سعرية",
-          "fields": [
-            {
-              "id": "label",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "الاسم",
-              "format": "text",
-              "required": false,
-              "maxLength": 30,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            },
-            {
-              "id": "min",
-              "icon": "sicon-hashtag",
-              "type": "number",
-              "format": "number",
-              "label": "من (ر.س)",
-              "required": false,
-              "value": 0
-            },
-            {
-              "id": "max",
-              "icon": "sicon-hashtag",
-              "type": "number",
-              "format": "number",
-              "label": "إلى (ر.س) — اتركه 0 لـ «فأكثر»",
-              "required": false,
-              "value": 0
-            }
-          ],
-          "value": [
-            {
-              "label": "أقل من 200",
-              "min": 0,
-              "max": 200
-            },
-            {
-              "label": "200 – 400",
-              "min": 200,
-              "max": 400
-            },
-            {
-              "label": "400 فأكثر",
-              "min": 400,
-              "max": 0
-            }
-          ]
-        },
-        {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
-        }
-      ],
-      "key": "ae604775-a1c4-55fb-a70f-96d28d2e5c1c",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-budget.jpg"
-    },
-    {
-      "title": "ذوق · شريط الشحن المجاني",
-      "icon": "sicon-shipping",
-      "name": "thawq-shipping",
-      "fields": [
-        {
-          "id": "threshold",
-          "icon": "sicon-hashtag",
-          "type": "number",
-          "format": "number",
-          "label": "حد الشحن المجاني (ر.س)",
-          "required": false,
-          "value": 300
-        },
-        {
-          "id": "reward",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "المكافأة",
-          "format": "text",
-          "required": false,
-          "maxLength": 60,
-          "value": "يصير الشحن مجاني",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "done",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "رسالة الاكتمال",
-          "format": "text",
-          "required": false,
-          "maxLength": 60,
-          "value": "مبروك! طلبك صار شحنه مجاني",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "button",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "نص الزر",
-          "format": "text",
-          "required": false,
-          "maxLength": 30,
-          "value": "كمّل التسوق",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "link",
-          "icon": "sicon-link",
-          "type": "string",
-          "format": "url",
-          "label": "رابط الزر",
-          "required": false,
-          "value": "",
-          "placeholder": "https://"
-        },
-        {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
-        }
-      ],
-      "key": "80989276-8edf-514d-8529-b4cf488a2fcc",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-shipping.jpg"
-    }
-  ]
+    ],
+    "author_email": "fooz1980k@gmail.com",
+    "support_url": ""
 }
