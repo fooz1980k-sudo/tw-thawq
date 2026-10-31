@@ -10,9 +10,9 @@
   "author": {
     "name": "Khaled Alshamrani",
     "email": "fooz1980k@gmail.com",
-    "url": "https://github.com/fooz1980k-sudo/thawq-bundle"
+    "url": "https://github.com/fooz1980k-sudo/tw-thawq"
   },
-  "repository": "https://github.com/fooz1980k-sudo/thawq-bundle",
+  "repository": "https://github.com/fooz1980k-sudo/tw-thawq",
   "components": [
     {
       "title": "ذوق · مساعد الاختيار",
@@ -174,7 +174,7 @@
         }
       ],
       "key": "20bfc4a1-b40d-5ec1-a801-ee29b036b45f",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/thawq-bundle/main/previews/thawq-quiz.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-quiz.jpg"
     },
     {
       "title": "ذوق · صمّم صندوقك",
@@ -267,7 +267,7 @@
         }
       ],
       "key": "13fa4ee9-e242-5028-903e-733dd652b018",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/thawq-bundle/main/previews/thawq-box.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-box.jpg"
     },
     {
       "title": "ذوق · حسب ميزانيتك",
@@ -385,7 +385,7 @@
         }
       ],
       "key": "ae604775-a1c4-55fb-a70f-96d28d2e5c1c",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/thawq-bundle/main/previews/thawq-budget.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-budget.jpg"
     },
     {
       "title": "ذوق · شريط الشحن المجاني",
@@ -459,7 +459,7 @@
         }
       ],
       "key": "80989276-8edf-514d-8529-b4cf488a2fcc",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/thawq-bundle/main/previews/thawq-shipping.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-thawq/main/previews/thawq-shipping.jpg"
     }
   ]
 }
