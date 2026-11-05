@@ -1,6 +1,6 @@
-import { css as _, LitElement as S, html as u } from "lit";
-import { property as A, state as L } from "lit/decorators.js";
-const M = _`
+import { css as _, LitElement as E, html as b } from "lit";
+import { property as L, state as N } from "lit/decorators.js";
+const O = _`
   :host { display: block; --tf-accent: var(--tf-custom, var(--color-primary, #c9a45c)); --tf-ink: #0f0c18; --tf-ivory: #f6f1e7; --tf-mut: #a59bc2;
     --tf-gold: linear-gradient(135deg, #f5d68a, #c9a45c 55%, #9a7634); font-family: inherit; direction: inherit; }
   :host([hidden]) { display: none; }
@@ -17,81 +17,106 @@ const M = _`
   .skel { background: linear-gradient(90deg, #8881 0, #8882 50%, #8881 100%); background-size: 200% 100%; animation: sk 1.4s infinite; border-radius: 14px; }
   @keyframes sk { to { background-position: -200% 0; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-`, x = () => window.Salla, N = async () => {
-  var n, t;
+`, f = () => window.Salla, A = async () => {
+  var e, t;
   try {
-    await ((t = (n = x()) == null ? void 0 : n.onReady) == null ? void 0 : t.call(n));
+    await ((t = (e = f()) == null ? void 0 : e.onReady) == null ? void 0 : t.call(e));
   } catch {
   }
-}, z = (n, t) => (document.documentElement.lang || "ar").startsWith("en") ? t : n, j = (n) => {
-  const t = typeof n == "object" && n ? n.amount : n, e = Number(t);
-  return Number.isFinite(e) ? e : 0;
-}, C = (n) => {
-  var t, e;
+}, z = (e, t) => (document.documentElement.lang || "ar").startsWith("en") ? t : e, j = (e) => {
+  const t = typeof e == "object" && e ? e.amount : e, n = Number(t);
+  return Number.isFinite(n) ? n : 0;
+}, C = (e) => {
+  var t, n;
   try {
-    return ((e = (t = x()) == null ? void 0 : t.money) == null ? void 0 : e.call(t, n)) ?? `${n} ${z("ر.س", "SAR")}`;
+    return ((n = (t = f()) == null ? void 0 : t.money) == null ? void 0 : n.call(t, e)) ?? `${e} ${z("ر.س", "SAR")}`;
   } catch {
-    return `${n} ${z("ر.س", "SAR")}`;
+    return `${e} ${z("ر.س", "SAR")}`;
   }
-}, m = (n) => String(n && typeof n == "object" ? n[(document.documentElement.lang || "ar").slice(0, 2)] ?? n.ar ?? "" : n ?? "");
-async function g() {
-  var t, e, i, a, r, c;
-  await N();
-  const n = x();
+}, M = () => {
+  var e, t, n, o, r;
   try {
-    const s = await (((i = (e = (t = n == null ? void 0 : n.cart) == null ? void 0 : t.api) == null ? void 0 : e.details) == null ? void 0 : i.call(e)) ?? ((r = (a = n == null ? void 0 : n.cart) == null ? void 0 : a.details) == null ? void 0 : r.call(a))), o = ((c = s == null ? void 0 : s.data) == null ? void 0 : c.cart) ?? (s == null ? void 0 : s.data) ?? s, l = j((o == null ? void 0 : o.sub_total) ?? (o == null ? void 0 : o.total) ?? (o == null ? void 0 : o.total_price));
+    const a = ((t = (e = f()) == null ? void 0 : e.lang) == null ? void 0 : t.locale) ?? ((r = (o = (n = f()) == null ? void 0 : n.config) == null ? void 0 : o.get) == null ? void 0 : r.call(o, "user.language_code"));
+    if (typeof a == "string" && a) return a.slice(0, 2);
+  } catch {
+  }
+  return (document.documentElement.lang || "ar").slice(0, 2);
+}, p = (e) => {
+  if (e == null) return "";
+  if (typeof e == "string") {
+    const t = e.trim();
+    if (t.startsWith("{") && t.endsWith("}"))
+      try {
+        return p(JSON.parse(t));
+      } catch {
+      }
+    return e;
+  }
+  if (typeof e == "number" || typeof e == "boolean") return String(e);
+  if (typeof e == "object") {
+    const t = e, n = t[M()] ?? t.ar ?? t.en ?? Object.values(t).find((o) => typeof o == "string" && o);
+    return typeof n == "string" ? n : "";
+  }
+  return "";
+};
+async function x() {
+  var t, n, o, r, a, c;
+  await A();
+  const e = f();
+  try {
+    const s = await (((o = (n = (t = e == null ? void 0 : e.cart) == null ? void 0 : t.api) == null ? void 0 : n.details) == null ? void 0 : o.call(n)) ?? ((a = (r = e == null ? void 0 : e.cart) == null ? void 0 : r.details) == null ? void 0 : a.call(r))), i = ((c = s == null ? void 0 : s.data) == null ? void 0 : c.cart) ?? (s == null ? void 0 : s.data) ?? s, l = j((i == null ? void 0 : i.sub_total) ?? (i == null ? void 0 : i.total) ?? (i == null ? void 0 : i.total_price));
     if (l || l === 0) return l;
   } catch {
   }
   return null;
 }
-function R(n) {
-  var a, r, c, s, o, l, b, y, h, k;
-  const t = x(), e = (d) => {
+function R(e) {
+  var r, a, c, s, i, l, g, k, h, v;
+  const t = f(), n = (d) => {
     var $;
-    const f = (($ = d == null ? void 0 : d.data) == null ? void 0 : $.cart) ?? (d == null ? void 0 : d.cart) ?? d, w = f && (f.sub_total ?? f.total) != null ? j(f.sub_total ?? f.total) : null;
-    w != null ? n(w) : g().then(n);
+    const m = (($ = d == null ? void 0 : d.data) == null ? void 0 : $.cart) ?? (d == null ? void 0 : d.cart) ?? d, w = m && (m.sub_total ?? m.total) != null ? j(m.sub_total ?? m.total) : null;
+    w != null ? e(w) : x().then(e);
   };
   try {
-    (c = (r = (a = t == null ? void 0 : t.cart) == null ? void 0 : a.event) == null ? void 0 : r.onUpdated) == null || c.call(r, e), (l = (o = (s = t == null ? void 0 : t.cart) == null ? void 0 : s.event) == null ? void 0 : o.onItemAdded) == null || l.call(o, e);
+    (c = (a = (r = t == null ? void 0 : t.cart) == null ? void 0 : r.event) == null ? void 0 : a.onUpdated) == null || c.call(a, n), (l = (i = (s = t == null ? void 0 : t.cart) == null ? void 0 : s.event) == null ? void 0 : i.onItemAdded) == null || l.call(i, n);
   } catch {
   }
   try {
-    (y = (b = t == null ? void 0 : t.event) == null ? void 0 : b.on) == null || y.call(b, "cart::updated", e), (k = (h = t == null ? void 0 : t.event) == null ? void 0 : h.on) == null || k.call(h, "cart::item.added", e);
+    (k = (g = t == null ? void 0 : t.event) == null ? void 0 : g.on) == null || k.call(g, "cart::updated", n), (v = (h = t == null ? void 0 : t.event) == null ? void 0 : h.on) == null || v.call(h, "cart::item.added", n);
   } catch {
   }
-  const i = () => {
-    g().then(n);
+  const o = () => {
+    x().then(e);
   };
-  return window.addEventListener("focus", i), () => window.removeEventListener("focus", i);
+  return window.addEventListener("focus", o), () => window.removeEventListener("focus", o);
 }
-const X = (n) => n ? `--tf-custom:${n}` : "";
-var O = Object.defineProperty, E = (n, t, e, i) => {
-  for (var a = void 0, r = n.length - 1, c; r >= 0; r--)
-    (c = n[r]) && (a = c(t, e, a) || a);
-  return a && O(t, e, a), a;
+const W = (e) => e ? `--tf-custom:${e}` : "";
+var X = Object.defineProperty, S = (e, t, n, o) => {
+  for (var r = void 0, a = e.length - 1, c; a >= 0; a--)
+    (c = e[a]) && (r = c(t, n, r) || r);
+  return r && X(t, n, r), r;
 };
-const v = class v extends S {
+const y = class y extends E {
   constructor() {
     super(...arguments), this.total = null;
   }
   connectedCallback() {
-    super.connectedCallback(), g().then((t) => this.total = t), this.off = R((t) => this.total = t);
+    super.connectedCallback(), x().then((t) => this.total = t), this.off = R((t) => this.total = t);
   }
   disconnectedCallback() {
     var t;
     super.disconnectedCallback(), (t = this.off) == null || t.call(this);
   }
   render() {
-    const t = this.config ?? {}, e = Math.max(1, Number(t.threshold ?? 300)), i = this.total ?? 0, a = Math.max(0, e - i), r = a === 0;
-    return u`<div class="wrap" style="padding-block:16px;${X(t.color)}"><div class="b dark ${r ? "ok" : ""}" role="status">
-      <span class="ic"><span class="truck">${r ? "🎉" : "🚚"}</span></span>
-      <div><p>${r ? u`<b>${m(t.done) || "مبروك! طلبك صار شحنه مجاني"}</b>` : i > 0 ? u`باقي <b>${C(a)}</b> و${m(t.reward) || "يصير الشحن مجاني"}` : u`${m(t.reward) || "الشحن مجاني"} للطلبات فوق <b>${C(e)}</b>`}</p>
-        <div class="tr" aria-hidden="true"><div class="fl" style="width:${Math.min(100, i / e * 100)}%"></div></div></div>
-      ${!r && m(t.button) && t.link ? u`<a class="btn" href=${t.link}>${m(t.button)}</a>` : ""}</div></div>`;
+    const t = this.config ?? {}, n = Math.max(1, Number(t.threshold ?? 300)), o = this.total ?? 0, r = Math.max(0, n - o), a = r === 0;
+    return b`<div class="wrap" style="padding-block:16px;${W(t.color)}"><div class="b dark ${a ? "ok" : ""}" role="status">
+      <span class="ic"><span class="truck">${a ? "🎉" : "🚚"}</span></span>
+      <div><p>${a ? b`<b>${p(t.done) || "مبروك! طلبك صار شحنه مجاني"}</b>` : o > 0 ? b`باقي <b>${C(r)}</b> و${p(t.reward) || "يصير الشحن مجاني"}` : b`${p(t.reward) || "الشحن مجاني"} للطلبات فوق <b>${C(n)}</b>`}</p>
+        <div class="tr" aria-hidden="true"><div class="fl" style="width:${Math.min(100, o / n * 100)}%"></div></div></div>
+      ${!a && p(t.button) && t.link ? b`<a class="btn" href=${t.link}>${p(t.button)}</a>` : ""}</div></div>`;
   }
 };
-v.styles = [M, _`
+y.styles = [O, _`
     .b { border-radius: 22px; padding: 18px 22px; display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; }
     @media (max-width: 640px) { .b { grid-template-columns: auto 1fr; } .b .btn { grid-column: 1 / -1; justify-content: center; } }
     .ic { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; font-size: 26px; background: color-mix(in srgb, var(--tf-accent) 18%, transparent); }
@@ -101,14 +126,14 @@ v.styles = [M, _`
     .fl::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, #fff8, transparent); animation: sh 2s infinite; } @keyframes sh { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
     .ok .ic { background: #2fbf7130; }
   `];
-let p = v;
-E([
-  A({ type: Object })
-], p.prototype, "config");
-E([
-  L()
-], p.prototype, "total");
-typeof p < "u" && p.registerSallaComponent("salla-thawq-shipping");
+let u = y;
+S([
+  L({ type: Object })
+], u.prototype, "config");
+S([
+  N()
+], u.prototype, "total");
+typeof u < "u" && u.registerSallaComponent("salla-thawq-shipping");
 export {
-  p as default
+  u as default
 };

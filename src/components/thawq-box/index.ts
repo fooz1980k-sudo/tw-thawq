@@ -1,7 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
-import { addToCart, money, Prod, products, style, toast, txt } from '../../shared/salla';
+import { addToCart, money, Prod, products, style, toast, localizedString } from '../../shared/salla';
 
 /** Build-your-own box: pick N pieces, watch the box fill, see the tier reward, add everything at once. */
 export default class ThawqBox extends LitElement {
@@ -36,12 +36,12 @@ export default class ThawqBox extends LitElement {
   render() {
     const c = this.config ?? {}; const N = this.size(); const list = this.list ?? []; const sel = this.picked.map((id) => list.find((p) => p.id === id)!).filter(Boolean);
     const tot = sel.reduce((a, p) => a + p.price, 0); const left = N - sel.length;
-    return html`<div class="wrap" style=${style(c.color)}><span class="eyebrow">🎁 صمّم صندوقك</span><h2 class="title">${txt(c.title) || 'اختر ' + N + ' قطع وكوّن صندوقك'}</h2>${txt(c.subtitle) ? html`<p class="sub">${txt(c.subtitle)}</p>` : ''}
+    return html`<div class="wrap" style=${style(c.color)}><span class="eyebrow">🎁 صمّم صندوقك</span><h2 class="title">${localizedString(c.title) || 'اختر ' + N + ' قطع وكوّن صندوقك'}</h2>${localizedString(c.subtitle) ? html`<p class="sub">${localizedString(c.subtitle)}</p>` : ''}
       <div class="g"><div class="grid">${this.list === null ? html`<div class="skel" style="height:260px"></div>` : list.map((p) => { const on = this.picked.includes(p.id);
           return html`<button class="p ${on ? 'on' : ''}" aria-pressed=${on} aria-disabled=${!p.available} @click=${() => this.tap(p)}><span class="ck">${on ? '✓' : '+'}</span><img src=${p.image} alt="" loading="lazy" /><div>${p.name}<b>${p.available ? money(p.price) : 'غير متوفر'}</b></div></button>`; })}</div>
         <aside class="box dark"><b>صندوقك</b><div class="slots" style="--n:${N}">${Array.from({ length: N }, (_, i) => html`<div class="slot">${sel[i] ? html`<img src=${sel[i].image} alt="" />` : i + 1}</div>`)}</div>
           <div class="bar"><i style="width:${(sel.length / N) * 100}%"></i></div>
-          <p class="msg">${left > 0 ? html`باقي <b>${left}</b> ${left === 1 ? 'قطعة' : 'قطع'}${txt(c.reward) ? html` وتحصل على <b>${txt(c.reward)}</b>` : ''}` : html`🎉 اكتمل صندوقك!${txt(c.reward) ? html` ${txt(c.reward)}` : ''}${c.coupon ? html` — استخدم الكود <code>${c.coupon}</code> في السلة` : ''}`}</p>
+          <p class="msg">${left > 0 ? html`باقي <b>${left}</b> ${left === 1 ? 'قطعة' : 'قطع'}${localizedString(c.reward) ? html` وتحصل على <b>${localizedString(c.reward)}</b>` : ''}` : html`🎉 اكتمل صندوقك!${localizedString(c.reward) ? html` ${localizedString(c.reward)}` : ''}${c.coupon ? html` — استخدم الكود <code>${c.coupon}</code> في السلة` : ''}`}</p>
           <p class="msg">المجموع: <b>${money(tot)}</b></p>
           <button class="btn" ?disabled=${left > 0 || this.busy} @click=${() => this.add(sel)}>${this.busy ? 'جاري الإضافة…' : left > 0 ? `اختر ${left} لإكمال الصندوق` : 'أضف الصندوق للسلة'}</button></aside></div></div>`;
   }

@@ -2,7 +2,7 @@ import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
 import { card, cardCss } from '../../shared/card';
-import { money, Prod, products, style, txt } from '../../shared/salla';
+import { money, Prod, products, style, localizedString } from '../../shared/salla';
 
 type Band = { label?: unknown; min?: number; max?: number };
 /** Shop by budget: tabs filter the chosen products by live price; empty bands are hidden automatically. */
@@ -19,15 +19,15 @@ export default class ThawqBudget extends LitElement {
   `];
   willUpdate(ch: Map<string, unknown>) { if (ch.has('config')) { const n = ++this.seq; this.list = null; this.tab = 0; products(this.config?.products).then((l) => { if (n === this.seq) this.list = l; }); } }
   private bands() {
-    const b = (this.config?.bands ?? []).filter((x) => txt(x.label));
+    const b = (this.config?.bands ?? []).filter((x) => localizedString(x.label));
     return b.length ? b : [{ label: 'أقل من 100', min: 0, max: 100 }, { label: '100 – 300', min: 100, max: 300 }, { label: 'أكثر من 300', min: 300, max: 0 }];
   }
   render() {
     const c = this.config ?? {}; const list = this.list ?? [];
     const groups = this.bands().map((b) => ({ b, items: list.filter((p) => p.price >= Number(b.min ?? 0) && (!Number(b.max) || p.price < Number(b.max))) })).filter((g) => this.list === null || g.items.length);
     const cur = groups[Math.min(this.tab, groups.length - 1)];
-    return html`<div class="wrap" style=${style(c.color)}><span class="eyebrow">💰 حسب ميزانيتك</span><h2 class="title">${txt(c.title) || 'هدية تناسب ميزانيتك'}</h2>${txt(c.subtitle) ? html`<p class="sub">${txt(c.subtitle)}</p>` : ''}
-      <div class="tabs" role="tablist">${groups.map((g, i) => html`<button class="t ${g === cur ? 'on' : ''}" role="tab" aria-selected=${g === cur} @click=${() => (this.tab = i)}>${txt(g.b.label)} <small>${g.items.length}</small></button>`)}</div>
+    return html`<div class="wrap" style=${style(c.color)}><span class="eyebrow">💰 حسب ميزانيتك</span><h2 class="title">${localizedString(c.title) || 'هدية تناسب ميزانيتك'}</h2>${localizedString(c.subtitle) ? html`<p class="sub">${localizedString(c.subtitle)}</p>` : ''}
+      <div class="tabs" role="tablist">${groups.map((g, i) => html`<button class="t ${g === cur ? 'on' : ''}" role="tab" aria-selected=${g === cur} @click=${() => (this.tab = i)}>${localizedString(g.b.label)} <small>${g.items.length}</small></button>`)}</div>
       <div class="grid" role="tabpanel">${this.list === null ? html`<div class="skel" style="height:300px"></div>` : cur?.items.sort((a, b) => b.rating - a.rating).map((p, i) => card(p, i === 0 ? 'الأعلى تقييماً' : p.regular > p.price ? `وفّر ${money(p.regular - p.price)}` : ''))}</div></div>`;
   }
 }
