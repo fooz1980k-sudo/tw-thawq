@@ -2,7 +2,7 @@ import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
 import { card, cardCss } from '../../shared/card';
-import { ids, Prod, products, style, txt } from '../../shared/salla';
+import { ids, Prod, products, style, localizedString } from '../../shared/salla';
 
 type Opt = { step?: unknown; emoji?: string; label?: unknown; products?: unknown };
 /** Product-finder quiz: up to 3 questions; each answer votes for products; results are ranked by votes then rating. */
@@ -23,7 +23,7 @@ export default class ThawqQuiz extends LitElement {
     .res { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; text-align: start; margin-top: 10px; }
     .why { opacity: .7; margin: -12px 0 24px; }
   `];
-  private qs() { const c = this.config ?? {}; return [c.q1, c.q2, c.q3].map(txt).map((q, i) => ({ q, i: i + 1, o: (c.options ?? []).filter((o) => Number(o.step ?? 1) === i + 1 && txt(o.label)) })).filter((x) => x.q && x.o.length); }
+  private qs() { const c = this.config ?? {}; return [c.q1, c.q2, c.q3].map((q) => localizedString(q)).map((q, i) => ({ q, i: i + 1, o: (c.options ?? []).filter((o) => Number(o.step ?? 1) === i + 1 && localizedString(o.label)) })).filter((x) => x.q && x.o.length); }
   private async pick(o: Opt) {
     this.picks = [...this.picks, o]; const qs = this.qs();
     if (this.step + 1 < qs.length) { this.step++; return; }
@@ -36,11 +36,11 @@ export default class ThawqQuiz extends LitElement {
   render() {
     const c = this.config ?? {}; const qs = this.qs(); if (!qs.length) return html`<div class="wrap"><p class="sub">أضف الأسئلة والخيارات من إعدادات العنصر.</p></div>`;
     const done = this.step >= qs.length; const cur = qs[this.step];
-    return html`<div class="wrap" style=${style(c.color)}><div class="box dark"><span class="eyebrow">🧭 مساعد الاختيار</span><h2 class="title">${txt(c.title) || 'محتار؟ نختار معك في 3 خطوات'}</h2>
+    return html`<div class="wrap" style=${style(c.color)}><div class="box dark"><span class="eyebrow">🧭 مساعد الاختيار</span><h2 class="title">${localizedString(c.title) || 'محتار؟ نختار معك في 3 خطوات'}</h2>
       <div class="prog">${qs.map((_, i) => html`<i class=${i <= this.step ? 'on' : ''}></i>`)}</div>
-      ${!done ? html`${html`<h3>${cur.q}</h3>`}<div class="opts">${cur.o.map((o, i) => html`<button class="o" style="animation-delay:${i * 0.06}s" @click=${() => this.pick(o)}><span>${o.emoji || '✨'}</span><b>${txt(o.label)}</b></button>`)}</div>
+      ${!done ? html`${html`<h3>${cur.q}</h3>`}<div class="opts">${cur.o.map((o, i) => html`<button class="o" style="animation-delay:${i * 0.06}s" @click=${() => this.pick(o)}><span>${o.emoji || '✨'}</span><b>${localizedString(o.label)}</b></button>`)}</div>
           ${this.step ? html`<button class="back" @click=${() => { this.step--; this.picks = this.picks.slice(0, -1); }}>→ رجوع</button>` : ''}`
-        : html`<h3>اخترنا لك هذي 👌</h3><p class="why">بناءً على: ${this.picks.map((p) => txt(p.label)).join(' · ')}</p>
+        : html`<h3>اخترنا لك هذي 👌</h3><p class="why">بناءً على: ${this.picks.map((p) => localizedString(p.label)).join(' · ')}</p>
           <div class="res">${this.res === null ? html`<div class="skel" style="height:300px"></div>` : this.res.length ? this.res.map((p, i) => card(p, i === 0 ? 'الأنسب لك' : '')) : html`<p>ما لقينا تطابق، جرّب خيارات ثانية.</p>`}</div>
           <button class="back" @click=${this.reset}>↺ ابدأ من جديد</button>`}</div></div>`;
   }

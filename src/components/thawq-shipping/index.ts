@@ -1,7 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
-import { cartTotal, money, onCart, style, txt } from '../../shared/salla';
+import { cartTotal, money, onCart, style, localizedString } from '../../shared/salla';
 
 /** Free-shipping progress: reads the live cart total and tells the shopper exactly how much is left. */
 export default class ThawqShipping extends LitElement {
@@ -24,8 +24,8 @@ export default class ThawqShipping extends LitElement {
     const c = this.config ?? {}; const T = Math.max(1, Number(c.threshold ?? 300)); const tot = this.total ?? 0; const left = Math.max(0, T - tot); const ok = left === 0;
     return html`<div class="wrap" style="padding-block:16px;${style(c.color)}"><div class="b dark ${ok ? 'ok' : ''}" role="status">
       <span class="ic"><span class="truck">${ok ? '🎉' : '🚚'}</span></span>
-      <div><p>${ok ? html`<b>${txt(c.done) || 'مبروك! طلبك صار شحنه مجاني'}</b>` : tot > 0 ? html`باقي <b>${money(left)}</b> و${txt(c.reward) || 'يصير الشحن مجاني'}` : html`${txt(c.reward) || 'الشحن مجاني'} للطلبات فوق <b>${money(T)}</b>`}</p>
+      <div><p>${ok ? html`<b>${localizedString(c.done) || 'مبروك! طلبك صار شحنه مجاني'}</b>` : tot > 0 ? html`باقي <b>${money(left)}</b> و${localizedString(c.reward) || 'يصير الشحن مجاني'}` : html`${localizedString(c.reward) || 'الشحن مجاني'} للطلبات فوق <b>${money(T)}</b>`}</p>
         <div class="tr" aria-hidden="true"><div class="fl" style="width:${Math.min(100, (tot / T) * 100)}%"></div></div></div>
-      ${!ok && txt(c.button) && c.link ? html`<a class="btn" href=${c.link}>${txt(c.button)}</a>` : ''}</div></div>`;
+      ${!ok && localizedString(c.button) && c.link ? html`<a class="btn" href=${c.link}>${localizedString(c.button)}</a>` : ''}</div></div>`;
   }
 }
